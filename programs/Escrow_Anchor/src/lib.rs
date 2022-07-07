@@ -157,13 +157,13 @@ pub struct Exchange<'info> {
     #[account(signer)]
     pub taker: AccountInfo<'info>,
     #[account(mut)]
-    pub taker_deposit_token_account: Account<'info, TokenAccount>,
+    pub taker_deposit_token_account: Box<Account<'info, TokenAccount>>,
     #[account(mut)]
-    pub taker_receive_token_account: Account<'info, TokenAccount>,
+    pub taker_receive_token_account: Box<Account<'info, TokenAccount>>,
     #[account(mut)]
-    pub initializer_deposit_token_account: Account<'info, TokenAccount>,
+    pub initializer_deposit_token_account: Box<Account<'info, TokenAccount>>,
     #[account(mut)]
-    pub initializer_receive_token_account: Account<'info, TokenAccount>,
+    pub initializer_receive_token_account: Box<Account<'info, TokenAccount>>,
     /// CHECK: This is not dangerous because we don't read or write from this account
     #[account(mut)]
     pub initializer: AccountInfo<'info>,
@@ -177,7 +177,7 @@ pub struct Exchange<'info> {
     )]
     pub escrow_account: Box<Account<'info, EscrowAccount>>,
     #[account(mut)]
-    pub vault_account: Account<'info, TokenAccount>,
+    pub vault_account: Box<Account<'info, TokenAccount>>,
     /// CHECK: This is not dangerous because we don't read or write from this account
     pub vault_authority: AccountInfo<'info>,
     /// CHECK: This is not dangerous because we don't read or write from this account

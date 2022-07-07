@@ -8,9 +8,6 @@ edition = "2021"
 crate-type = ["cdylib", "lib"]
 name = "escrow_anchor"
 
-[programs.localnet]
-anchor_escrow = "BUJcMvdF4wPcqerCE3xdKrP9fjDEgb5RQwtuJoA6c3nz"
-
 [features]
 no-entrypoint = []
 no-idl = []
@@ -22,6 +19,6 @@ default = []
 overflow-checks = true
 
 [dependencies]
-anchor-lang = "0.24.2"
-anchor-spl = {version = "0.24.2"}
+anchor-lang = "0.25.0"
+anchor-spl = {version = "0.25.0"}
 spl-token = {version = "3.3.0", features = ["no-entrypoint"]}
